@@ -42,6 +42,7 @@
             />
         <activity android:name=".ui.activity.PlayVideoActivity"/>
         <activity android:name=".ui.activity.CommentActivity"/>
+        <activity android:name=".ui.activity.WebViewActivity"/>
     </application>
 
 </manifest>

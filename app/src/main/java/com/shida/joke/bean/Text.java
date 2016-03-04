@@ -106,7 +106,7 @@ public class Text {
          * name : 吐槽
          */
 
-        @SerializedName("tag")
+        @SerializedName("tags")
         private List<TagsEntity> tags;
 
         public void setComment(String comment) {

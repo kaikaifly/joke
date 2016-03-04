@@ -69,6 +69,13 @@ public class VideoAdapter extends BaseListAdapter<Video.ListEntity, VideoAdapter
         holder.hate.setText(String.valueOf(data.getDown()));
         holder.commentCount.setText(data.getComment());
         holder.playcount.setText(String.valueOf(data.getVideo().getPlaycount()) + "次播放");
+
+        String ss = "";
+        for (int i=0;i<data.getTags().size();i++){
+            ss = ss + data.getTags().get(i).getName() + "   ";
+        }
+        holder.label.setText(ss);
+
         int duration = data.getVideo().getDuration();
         int m = duration/60;
         int s = duration%60;
@@ -117,7 +124,8 @@ public class VideoAdapter extends BaseListAdapter<Video.ListEntity, VideoAdapter
         TextView playcount;
         @Bind(R.id.duration)
         TextView duration;
-
+        @Bind(R.id.label)
+        TextView label;
         public ViewHolder(View itemView) {
             super(itemView);
         }

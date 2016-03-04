@@ -14,6 +14,7 @@ import com.shida.joke.base.BaseListAdapter;
 import com.shida.joke.bean.Recommend;
 import com.shida.joke.ui.activity.CommentActivity;
 import com.shida.joke.ui.activity.PlayVideoActivity;
+import com.shida.joke.ui.activity.WebViewActivity;
 import com.shida.joke.utils.GlideCircleTransform;
 
 import java.util.List;
@@ -53,6 +54,13 @@ public class RecommendAdapter extends BaseListAdapter<Recommend.ListEntity, Reco
         holder.text.setText("\n" + data.getText() + "\n");
         holder.love.setText(data.getUp());
         holder.hate.setText(String.valueOf(data.getDown()));
+
+        String ss = "";
+        for (int i=0;i<data.getTags().size();i++){
+            ss = ss + data.getTags().get(i).getName() + "   ";
+        }
+        holder.label.setText(ss);
+
         holder.comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,9 +129,9 @@ public class RecommendAdapter extends BaseListAdapter<Recommend.ListEntity, Reco
             holder.imgae.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Intent intent = new Intent(context, PlayVideoActivity.class);
-//                    intent.putExtra("videoPath", data.getVideo().getVideo().get(0));
-//                    context.startActivity(intent);
+                    Intent intent = new Intent(context, WebViewActivity.class);
+                    intent.putExtra("htmlPath", data.getHtml().getSource_url());
+                    context.startActivity(intent);
                 }
             });
         } else if (data.getType().equals("video")) {
@@ -223,7 +231,8 @@ public class RecommendAdapter extends BaseListAdapter<Recommend.ListEntity, Reco
         TextView commentCount;
         @Bind(R.id.lookWebview)
         TextView lookWebview;
-
+        @Bind(R.id.label)
+        TextView label;
 
         public ViewHolder(View itemView) {
             super(itemView);

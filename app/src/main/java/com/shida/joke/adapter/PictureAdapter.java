@@ -85,6 +85,12 @@ public class PictureAdapter extends BaseListAdapter<Picture.ListEntity, PictureA
         });
         holder.commentCount.setText(data.getComment());
 
+        String s = "";
+        for (int i=0;i<data.getTags().size();i++){
+            s = s + data.getTags().get(i).getName() + "   ";
+        }
+        holder.label.setText(s);
+
     }
 
     class ViewHolder extends BaseListAdapter.ViewHolder {
@@ -108,6 +114,8 @@ public class PictureAdapter extends BaseListAdapter<Picture.ListEntity, PictureA
         LinearLayout comment;
         @Bind(R.id.commentCount)
         TextView commentCount;
+        @Bind(R.id.label)
+        TextView label;
 
         public ViewHolder(View itemView) {
             super(itemView);
