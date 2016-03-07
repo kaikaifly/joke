@@ -48,6 +48,7 @@ public class RecommendFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+
         initRefreshView();
         getData();
 
@@ -63,14 +64,8 @@ public class RecommendFragment extends BaseFragment {
                     }
                 }
             }
-
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-//
-//                // TODO: 2015/12/21 0021 加载更多
-//                if (firstVisibleItem + visibleItemCount == totalItemCount - 6) {
-//
-//                }
             }
         });
     }
@@ -101,40 +96,6 @@ public class RecommendFragment extends BaseFragment {
 
 
     private void getData() {
-
-        //时间
-//        Date now = new Date();
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
-//        String timestamp = dateFormat.format(now);
-
-
-//        NetApi.getVideo(timestamp, new OkHttpClientManager.ResultCallback<Picture>() {
-//            @Override
-//            public void onError(Request request, Exception e) {
-//                showToast("加载失败！");
-//            }
-//
-//            @Override
-//            public void onResponse(Picture response) {
-//                if (response != null) {
-//                    if (page == 1) {
-//                        videoList.clear();
-////                        videoList = response.getShowapi_res_body().getPagebean().getContentlist();
-////                        pictureAdapter = new PictureAdapter(getActivity(), videoList);
-////                        listView.setAdapter(pictureAdapter);
-//                        mPtrFrame.refreshComplete();
-//                    } else {
-////                        videoList.addAll(response.getShowapi_res_body().getPagebean().getContentlist());
-////                        pictureAdapter.notifyDataSetChanged();
-//                    }
-//                } else {
-//                    showToast("加载失败！");
-//                }
-//
-//
-//            }
-//        });
-
         NetApi.getRecommend(timestamp, new OkHttpClientManager.ResultCallback<Recommend>() {
             @Override
             public void onError(Request request, Exception e) {

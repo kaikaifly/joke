@@ -14,6 +14,7 @@ import com.shida.joke.base.BaseListAdapter;
 import com.shida.joke.bean.Recommend;
 import com.shida.joke.ui.activity.CommentActivity;
 import com.shida.joke.ui.activity.PlayVideoActivity;
+import com.shida.joke.ui.activity.UserInfoActivity;
 import com.shida.joke.ui.activity.WebViewActivity;
 import com.shida.joke.utils.GlideCircleTransform;
 
@@ -48,6 +49,14 @@ public class RecommendAdapter extends BaseListAdapter<Recommend.ListEntity, Reco
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .placeholder(R.mipmap.ic_launcher)
                 .into(holder.headPic);
+        holder.headPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, UserInfoActivity.class);
+                intent.putExtra("userid", data.getU().getUid());
+                context.startActivity(intent);
+            }
+        });
 
         holder.nickName.setText(data.getU().getName());
         holder.date.setText(data.getPasstime());
