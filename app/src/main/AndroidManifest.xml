@@ -44,6 +44,7 @@
         <activity android:name=".ui.activity.CommentActivity"/>
         <activity android:name=".ui.activity.WebViewActivity"/>
         <activity android:name=".ui.activity.UserInfoActivity"/>
+        <activity android:name=".ui.activity.PictureDetailActivity"/>
     </application>
 
 </manifest>

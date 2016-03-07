@@ -2,9 +2,7 @@ package com.shida.joke.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.view.Display;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,6 +13,7 @@ import com.shida.joke.R;
 import com.shida.joke.base.BaseListAdapter;
 import com.shida.joke.bean.Picture;
 import com.shida.joke.ui.activity.CommentActivity;
+import com.shida.joke.ui.activity.PictureDetailActivity;
 import com.shida.joke.utils.GlideCircleTransform;
 
 import java.util.List;
@@ -44,9 +43,11 @@ public class PictureAdapter extends BaseListAdapter<Picture.ListEntity, PictureA
     @Override
     protected void onBindVHolder(ViewHolder holder, final Picture.ListEntity data, int position) {
 
-        Display display = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-        display.getWidth(); // to get width of the screen
-        display.getHeight(); // to get height of the Screen
+//        Display display = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
+//        display.getWidth(); // to get width of the screen
+//        display.getHeight(); // to get height of the Screen
+
+
 
         Glide.with(context)
                 .load(data.getU().getHeader().get(0))
@@ -69,31 +70,63 @@ public class PictureAdapter extends BaseListAdapter<Picture.ListEntity, PictureA
                     .placeholder(R.mipmap.ic_launcher)
                     .into(holder.imgae);
         }
-
-        holder.nickName.setText(data.getU().getName());
-        holder.date.setText(data.getPasstime());
-        holder.text.setText("\n" + data.getText() + "\n");
-        holder.love.setText(data.getUp());
-        holder.hate.setText(String.valueOf(data.getDown()));
-        holder.comment.setOnClickListener(new View.OnClickListener() {
+        holder.imgae.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(context, PictureDetailActivity.class);
+
+                if (data.getType().equals("image")) {
+                    intent.putExtra("imagePath",data.getImage().getBig().get(0));
+                } else if (data.getType().equals("gif")) {
+                    intent.putExtra("gifPath",data.getGif().getImages().get(0));
+                }
+                context.startActivity(intent);
+                }
+            }
+
+            );
+
+            holder.nickName.setText(data.getU().
+
+            getName()
+
+            );
+            holder.date.setText(data.getPasstime());
+            holder.text.setText("\n"+data.getText()+"\n");
+            holder.love.setText(data.getUp());
+            holder.hate.setText(String.valueOf(data.getDown()));
+            holder.comment.setOnClickListener(new View.OnClickListener()
+
+            {
+                @Override
+                public void onClick (View v){
                 Intent intent = new Intent(context, CommentActivity.class);
                 intent.putExtra("dataId", data.getId());
                 context.startActivity(intent);
             }
-        });
-        holder.commentCount.setText(data.getComment());
+            }
 
-        String s = "";
-        for (int i=0;i<data.getTags().size();i++){
-            s = s + data.getTags().get(i).getName() + "   ";
-        }
+            );
+            holder.commentCount.setText(data.getComment());
+
+            String s = "";
+            for(
+            int i = 0;
+            i<data.getTags().
+
+            size();
+
+            i++)
+
+            {
+                s = s + data.getTags().get(i).getName() + "   ";
+            }
+
         holder.label.setText(s);
 
-    }
+        }
 
-    class ViewHolder extends BaseListAdapter.ViewHolder {
+        class ViewHolder extends BaseListAdapter.ViewHolder {
         @Bind(R.id.headPic)
         ImageView headPic;
         @Bind(R.id.nickName)
