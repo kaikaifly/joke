@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
 
     <LinearLayout
@@ -16,7 +16,7 @@
             android:id="@+id/headPic"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/ic_launcher" />
+            android:background="@drawable/ic_launcher"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
                 android:id="@+id/nickName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="劲爆体育" />
+                android:text="劲爆体育"/>
 
             <TextView
                 android:id="@+id/date"
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="2016-02-29 14:18:01"
-                android:textSize="11sp" />
+                android:textSize="11sp"/>
 
         </LinearLayout>
     </LinearLayout>
@@ -49,22 +49,22 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:layout_marginLeft="10dp"
-        android:text="\n被虎鲸追赶的企鹅，跳上人类的船避难\n" />
+        android:text="\n被虎鲸追赶的企鹅，跳上人类的船避难\n"/>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginBottom="5dp"
+        android:orientation="horizontal"
         >
 
         <ImageView
             android:id="@+id/imgae"
             android:layout_width="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:scaleType="centerCrop"
             />
 
@@ -73,8 +73,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:visibility="gone"
-            android:src="@drawable/play_video_pressed" />
+            android:src="@drawable/play_video_pressed"
+            android:visibility="gone"/>
+
         <RelativeLayout
             android:id="@+id/playcount_duration"
             android:layout_width="match_parent"
@@ -82,28 +83,30 @@
             android:layout_gravity="bottom"
             android:visibility="gone"
             >
+
             <TextView
                 android:id="@+id/playcount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:background="#000000"
                 android:text="345次播放"
-                android:textSize="12sp"
                 android:textColor="#ffffff"
-                android:layout_marginLeft="10dp"
+                android:textSize="12sp"
                 />
+
             <TextView
                 android:id="@+id/duration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#000000"
-                android:text="03:25"
-                android:layout_marginRight="10dp"
-                android:textColor="#ffffff"
+                android:layout_alignParentRight="true"
                 android:layout_gravity="bottom"
                 android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#000000"
+                android:text="03:25"
+                android:textColor="#ffffff"
                 android:textSize="12sp"
-                android:layout_alignParentRight="true"
                 />
         </RelativeLayout>
 
@@ -111,55 +114,56 @@
             android:id="@+id/lookWebview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="查看全文"
-            android:background="#000000"
-            android:textColor="#ffffff"
-            android:gravity="center"
-            android:padding="8dp"
             android:layout_gravity="bottom"
-            android:visibility="gone"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:background="#000000"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="查看全文"
+            android:textColor="#ffffff"
+            android:visibility="gone"
             />
 
     </FrameLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginBottom="7dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="7dp"
-        android:layout_marginBottom="7dp"
+        android:orientation="horizontal"
         >
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/label_icon"
             />
+
         <TextView
             android:id="@+id/label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="搞笑   微视频"
-            android:textSize="12sp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="5dp"
+            android:text="搞笑   微视频"
+            android:textSize="12sp"
             />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="#E6E6E6" />
+        android:background="#E6E6E6"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp"
-        android:orientation="horizontal"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp">
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -167,13 +171,14 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal"
-
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
             >
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/love" />
+                android:background="@drawable/love"/>
 
             <TextView
                 android:id="@+id/love"
@@ -181,7 +186,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="3dp"
-                android:text="15" />
+                android:text="15"/>
 
         </LinearLayout>
 
@@ -189,12 +194,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/hate" />
+                android:background="@drawable/hate"/>
 
             <TextView
                 android:id="@+id/hate"
@@ -202,7 +209,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="3dp"
-                android:text="99" />
+                android:text="99"/>
 
 
         </LinearLayout>
@@ -211,38 +218,46 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
 
             <ImageView
                 android:id="@+id/shared"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/forward" />
+                android:background="@drawable/forward"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="3dp"
-                android:text="分享" />
+                android:text="分享"/>
         </LinearLayout>
+
         <LinearLayout
+            android:id="@+id/comment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
 
             <ImageView
-                android:id="@+id/comment"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/commend" />
+                android:background="@drawable/commend"/>
+
             <TextView
                 android:id="@+id/commentCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="3dp"
-                android:text="99" />
+                android:text="99"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

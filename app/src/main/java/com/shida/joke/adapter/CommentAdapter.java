@@ -1,6 +1,7 @@
 package com.shida.joke.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,6 +12,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.shida.joke.R;
 import com.shida.joke.base.BaseListAdapter;
 import com.shida.joke.bean.Comment;
+import com.shida.joke.ui.activity.UserInfoActivity;
 import com.shida.joke.utils.GlideCircleTransform;
 
 import java.util.List;
@@ -39,13 +41,21 @@ public class CommentAdapter extends BaseListAdapter<Comment.DataEntity, CommentA
     }
 
     @Override
-    protected void onBindVHolder(ViewHolder holder, Comment.DataEntity data, int position) {
+    protected void onBindVHolder(ViewHolder holder, final Comment.DataEntity data, int position) {
         Glide.with(context)
                 .load(data.getUser().getProfile_image())
                 .transform(new GlideCircleTransform(context))
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .placeholder(R.mipmap.ic_launcher)
                 .into(holder.headPic);
+        holder.headPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, UserInfoActivity.class);
+                intent.putExtra("userid", data.getUser().getId());
+                context.startActivity(intent);
+            }
+        });
 
         if (data.getUser().getSex().equals("m")){
             holder.sex.setText("♂");

@@ -343,7 +343,7 @@ public class UserInfoActivity extends BaseActivity {
 
             @Override
             public void onResponse(Recommend response) {
-                if (response != null){
+                if (response != null && response.getList() != null){
 
                     if (timestamp.equals("0")) {
                         recommendList.clear();
@@ -373,8 +373,7 @@ public class UserInfoActivity extends BaseActivity {
 
             @Override
             public void onResponse(Recommend response) {
-                if (response != null) {
-
+                if (response != null && response.getList() != null) {
                     if (timestamp.equals("0")) {
                         recommendList.clear();
                         recommendList = response.getList();
@@ -403,7 +402,7 @@ public class UserInfoActivity extends BaseActivity {
 
             @Override
             public void onResponse(Recommend response) {
-                if (response != null) {
+                if (response != null && response.getList() != null) {
 
                     if (timestamp.equals("0")) {
                         recommendList.clear();

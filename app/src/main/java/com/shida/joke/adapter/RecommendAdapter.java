@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ import com.shida.joke.R;
 import com.shida.joke.base.BaseListAdapter;
 import com.shida.joke.bean.Recommend;
 import com.shida.joke.ui.activity.CommentActivity;
+import com.shida.joke.ui.activity.PictureDetailActivity;
 import com.shida.joke.ui.activity.PlayVideoActivity;
 import com.shida.joke.ui.activity.UserInfoActivity;
 import com.shida.joke.ui.activity.WebViewActivity;
@@ -99,9 +101,9 @@ public class RecommendAdapter extends BaseListAdapter<Recommend.ListEntity, Reco
             holder.imgae.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Intent intent = new Intent(context, PlayVideoActivity.class);
-//                    intent.putExtra("videoPath", data.getVideo().getVideo().get(0));
-//                    context.startActivity(intent);
+                    Intent intent = new Intent(context, PictureDetailActivity.class);
+                    intent.putExtra("imagePath",data.getImage().getBig().get(0));
+                    context.startActivity(intent);
                 }
             });
         } else if (data.getType().equals("gif")) {
@@ -117,9 +119,9 @@ public class RecommendAdapter extends BaseListAdapter<Recommend.ListEntity, Reco
             holder.imgae.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Intent intent = new Intent(context, PlayVideoActivity.class);
-//                    intent.putExtra("videoPath", data.getVideo().getVideo().get(0));
-//                    context.startActivity(intent);
+                    Intent intent = new Intent(context, PictureDetailActivity.class);
+                    intent.putExtra("gifPath",data.getGif().getImages().get(0));
+                    context.startActivity(intent);
                 }
             });
 
@@ -182,34 +184,6 @@ public class RecommendAdapter extends BaseListAdapter<Recommend.ListEntity, Reco
     }
 
     class ViewHolder extends BaseListAdapter.ViewHolder {
-        //        @Bind(R.id.headPic)
-//        ImageView headPic;
-//        @Bind(R.id.nickName)
-//        TextView nickName;
-//        @Bind(R.id.date)
-//        TextView date;
-//        @Bind(R.id.text)
-//        TextView text;
-//        @Bind(R.id.imgae)
-//        ImageView imgae;
-//        @Bind(R.id.love)
-//        TextView love;
-//        @Bind(R.id.hate)
-//        TextView hate;
-//        @Bind(R.id.shared)
-//        ImageView shared;
-//        @Bind(R.id.comment)
-//        LinearLayout comment;
-//        @Bind(R.id.commentCount)
-//        TextView commentCount;
-//        @Bind(R.id.playcount)
-//        TextView playcount;
-//        @Bind(R.id.duration)
-//        TextView duration;
-//        @Bind(R.id.playbutton)
-//        ImageView playbutton;
-//        @Bind(R.id.playcount_duration)
-//        RelativeLayout playcount_duration;
         @Bind(R.id.headPic)
         ImageView headPic;
         @Bind(R.id.nickName)
@@ -235,7 +209,7 @@ public class RecommendAdapter extends BaseListAdapter<Recommend.ListEntity, Reco
         @Bind(R.id.shared)
         ImageView shared;
         @Bind(R.id.comment)
-        ImageView comment;
+        LinearLayout comment;
         @Bind(R.id.commentCount)
         TextView commentCount;
         @Bind(R.id.lookWebview)

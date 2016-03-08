@@ -30,7 +30,7 @@ public class WelcomeActivity extends BaseActivity {
                startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
                 finish();
             }
-        }, 2000);
+        }, 1);
 
     }
 }

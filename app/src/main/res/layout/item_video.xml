@@ -142,8 +142,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp"
         android:orientation="horizontal"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp">
+>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -151,7 +150,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal"
-
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
             >
 
             <ImageView
@@ -173,7 +173,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            >
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -195,7 +198,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            >
 
             <ImageView
                 android:id="@+id/shared"
@@ -210,13 +216,16 @@
                 android:text="分享" />
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/comment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            >
 
             <ImageView
-                android:id="@+id/comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/commend" />

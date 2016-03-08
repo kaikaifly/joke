@@ -14,6 +14,7 @@ import com.shida.joke.base.BaseListAdapter;
 import com.shida.joke.bean.Picture;
 import com.shida.joke.ui.activity.CommentActivity;
 import com.shida.joke.ui.activity.PictureDetailActivity;
+import com.shida.joke.ui.activity.UserInfoActivity;
 import com.shida.joke.utils.GlideCircleTransform;
 
 import java.util.List;
@@ -55,6 +56,14 @@ public class PictureAdapter extends BaseListAdapter<Picture.ListEntity, PictureA
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .placeholder(R.mipmap.ic_launcher)
                 .into(holder.headPic);
+        holder.headPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, UserInfoActivity.class);
+                intent.putExtra("userid", data.getU().getUid());
+                context.startActivity(intent);
+            }
+        });
 
         if (data.getType().equals("image")){
             Glide.with(context)
@@ -83,8 +92,7 @@ public class PictureAdapter extends BaseListAdapter<Picture.ListEntity, PictureA
                 context.startActivity(intent);
                 }
             }
-
-            );
+        );
 
             holder.nickName.setText(data.getU().
 

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -13,6 +14,7 @@ import com.shida.joke.base.BaseListAdapter;
 import com.shida.joke.bean.Video;
 import com.shida.joke.ui.activity.CommentActivity;
 import com.shida.joke.ui.activity.PlayVideoActivity;
+import com.shida.joke.ui.activity.UserInfoActivity;
 import com.shida.joke.utils.GlideCircleTransform;
 
 import java.util.List;
@@ -48,7 +50,14 @@ public class VideoAdapter extends BaseListAdapter<Video.ListEntity, VideoAdapter
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .placeholder(R.mipmap.ic_launcher)
                 .into(holder.headPic);
-
+        holder.headPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, UserInfoActivity.class);
+                intent.putExtra("userid", data.getU().getUid());
+                context.startActivity(intent);
+            }
+        });
         Glide.with(context)
                 .load(data.getVideo().getThumbnail().get(0))
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
@@ -117,7 +126,7 @@ public class VideoAdapter extends BaseListAdapter<Video.ListEntity, VideoAdapter
         @Bind(R.id.shared)
         ImageView shared;
         @Bind(R.id.comment)
-        ImageView comment;
+        LinearLayout comment;
         @Bind(R.id.commentCount)
         TextView commentCount;
         @Bind(R.id.playcount)

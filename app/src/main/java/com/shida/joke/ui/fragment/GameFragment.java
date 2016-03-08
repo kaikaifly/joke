@@ -6,9 +6,9 @@ import android.widget.ListView;
 
 import com.shida.joke.NetApi;
 import com.shida.joke.R;
-import com.shida.joke.adapter.PictureAdapter;
+import com.shida.joke.adapter.RecommendAdapter;
 import com.shida.joke.base.BaseFragment;
-import com.shida.joke.bean.Picture;
+import com.shida.joke.bean.Recommend;
 import com.shida.joke.utils.OkHttpClientManager;
 import com.squareup.okhttp.Request;
 
@@ -22,26 +22,30 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
 
 /**
- * Created by Administrator on 2016/2/29 0029.
+ * Created by Administrator on 2016/3/8 0008.
  */
-public class PictureFragment extends BaseFragment {
+public class GameFragment extends BaseFragment {
+
     @Bind(R.id.rotate_header_list_view_frame)
     PtrClassicFrameLayout mPtrFrame;
     @Bind(R.id.listView)
     ListView listView;
-    PictureAdapter pictureAdapter;
+
+    RecommendAdapter recommendAdapter;
+
 
     String timestamp = "0";
+    List<Recommend.ListEntity> recommendList = new ArrayList<>();
 
-    List<Picture.ListEntity> pictureList = new ArrayList<>();
 
-    public static PictureFragment newInstance() {
-        PictureFragment pictureFragment = new PictureFragment();
-        return pictureFragment;
+    public static GameFragment newInstance() {
+        GameFragment gameFragment = new GameFragment();
+        return gameFragment;
     }
+
     @Override
     protected int getLayoutResId() {
-        return R.layout.fragment_pictrue;
+        return R.layout.fragment_ranking;
     }
 
     @Override
@@ -53,28 +57,19 @@ public class PictureFragment extends BaseFragment {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
                 // 当不滚动时
-                    if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
-                        // 判断是否滚动到底部
-                        if (view.getLastVisiblePosition() == view.getCount() - 1) {
-                            //加载更多功能的代码
-
-                            getData();
-                        }
+                if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
+                    // 判断是否滚动到底部
+                    if (view.getLastVisiblePosition() == view.getCount() - 1) {
+                        //加载更多功能的代码
+                        getData();
+                    }
                 }
             }
-
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-//
-//                // TODO: 2015/12/21 0021 加载更多
-//                if (firstVisibleItem + visibleItemCount == totalItemCount - 6) {
-//
-//                }
             }
         });
     }
-
-
 
     private void initRefreshView() {
         mPtrFrame.setLastUpdateTimeRelateObject(this);
@@ -99,49 +94,27 @@ public class PictureFragment extends BaseFragment {
         });
     }
 
+
     private void getData() {
-
-        //时间
-//        Date now = new Date();
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
-//        String timestamp = dateFormat.format(now);
-
-
-        NetApi.getPic(timestamp,new OkHttpClientManager.ResultCallback<Picture>() {
+        NetApi.getGame(timestamp, new OkHttpClientManager.ResultCallback<Recommend>() {
             @Override
             public void onError(Request request, Exception e) {
-                showToast("加载失败！");
+                e.printStackTrace();
             }
 
             @Override
-            public void onResponse(Picture response) {
-//                if (response != null){
-//                    if (page == 1){
-//                        pictureList.clear();
-//                        pictureList = response.getShowapi_res_body().getPagebean().getContentlist();
-//                        pictureAdapter = new PictureAdapter(getActivity(),pictureList);
-//                        listView.setAdapter(pictureAdapter);
-//                        mPtrFrame.refreshComplete();
-//                    }
-//                    else {
-//                        pictureList.addAll(response.getShowapi_res_body().getPagebean().getContentlist());
-//                        pictureAdapter.notifyDataSetChanged();
-//                    }
-//                }
-//                else {
-//                    showToast("加载失败！");
-//                }
+            public void onResponse(Recommend response) {
                 if (response != null) {
-                    if (timestamp.equals("0")){
-                        pictureList.clear();
-                        pictureList = response.getList();
+                    if (timestamp.equals("0")) {
+                        recommendList.clear();
+                        recommendList = response.getList();
                         timestamp = String.valueOf(response.getInfo().getNp());
-                        pictureAdapter = new PictureAdapter(getActivity(), pictureList);
-                        listView.setAdapter(pictureAdapter);
+                        recommendAdapter = new RecommendAdapter(getActivity(), recommendList);
+                        listView.setAdapter(recommendAdapter);
                         mPtrFrame.refreshComplete();
-                    }else {
-                        pictureList.addAll(response.getList());
-                        pictureAdapter.notifyDataSetChanged();
+                    } else {
+                        recommendList.addAll(response.getList());
+                        recommendAdapter.notifyDataSetChanged();
                         timestamp = String.valueOf(response.getInfo().getNp());
                     }
 
@@ -149,8 +122,10 @@ public class PictureFragment extends BaseFragment {
                     showToast("加载失败！");
                 }
 
-            }
-        });
 
+            }
+
+        });
     }
+
 }
