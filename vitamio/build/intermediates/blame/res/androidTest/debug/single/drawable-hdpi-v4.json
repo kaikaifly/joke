@@ -6,5 +6,9 @@
     {
         "merged": "E:\\AndroidStudio_projectLocation\\joke\\vitamio\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
         "source": "E:\\AndroidStudio_projectLocation\\joke\\vitamio\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\joke_new\\vitamio\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "E:\\joke_new\\vitamio\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\ic_launcher.png"
     }
 ]
