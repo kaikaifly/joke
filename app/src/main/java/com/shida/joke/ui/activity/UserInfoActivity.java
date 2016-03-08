@@ -1,4 +1,5 @@
 package com.shida.joke.ui.activity;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.shida.joke.NetApi;
@@ -23,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
+
 /**
  * Created by Administrator on 2016/3/7 0007.
  */
@@ -142,7 +145,7 @@ public class UserInfoActivity extends BaseActivity {
         lv = (TextView) view.findViewById(R.id.lv);
         jifen = (TextView) view.findViewById(R.id.jifen);
         guanzhu_count = (TextView) view.findViewById(R.id.guanzhu_count);
-        fans_count  = (TextView) view.findViewById(R.id.fans_count);
+        fans_count = (TextView) view.findViewById(R.id.fans_count);
         introduction = (TextView) view.findViewById(R.id.introduction);
 
         tiezi = (LinearLayout) view.findViewById(R.id.tiezi);
@@ -150,7 +153,7 @@ public class UserInfoActivity extends BaseActivity {
         comment = (LinearLayout) view.findViewById(R.id.comment);
 
         tiezi_count = (TextView) view.findViewById(R.id.tiezi_count);
-        shared_count= (TextView) view.findViewById(R.id.shared_count);
+        shared_count = (TextView) view.findViewById(R.id.shared_count);
         comment_count = (TextView) view.findViewById(R.id.comment_count);
 
         tiezi_text = (TextView) view.findViewById(R.id.tiezi_text);
@@ -175,11 +178,11 @@ public class UserInfoActivity extends BaseActivity {
                     if (view.getLastVisiblePosition() == view.getCount() - 1) {
                         //加载更多功能的代码
 
-                        if (flag == 1){
+                        if (flag == 1) {
                             getUserTiezi();
-                        }else if (flag == 2){
+                        } else if (flag == 2) {
                             getUserShared();
-                        }else if (flag == 3){
+                        } else if (flag == 3) {
                             getUserComment();
                         }
                     }
@@ -273,16 +276,6 @@ public class UserInfoActivity extends BaseActivity {
         });
 
 
-
-
-
-
-
-
-
-
-
-
         NetApi.getUserInfo(userid, new OkHttpClientManager.ResultCallback<UserInfo>() {
             @Override
             public void onError(Request request, Exception e) {
@@ -334,7 +327,7 @@ public class UserInfoActivity extends BaseActivity {
         });
     }
 
-    private void getUserTiezi(){
+    private void getUserTiezi() {
         NetApi.getUserTiezi(timestamp, userid, new OkHttpClientManager.ResultCallback<Recommend>() {
             @Override
             public void onError(Request request, Exception e) {
@@ -343,9 +336,9 @@ public class UserInfoActivity extends BaseActivity {
 
             @Override
             public void onResponse(Recommend response) {
-                if (response != null ) {
+                if (response != null) {
                     if (timestamp.equals("0")) {
-                        if (response.getList() != null){
+                        if (response.getList() != null) {
                             recommendList.clear();
                             recommendList = response.getList();
                             timestamp = String.valueOf(response.getInfo().getNp());
@@ -353,7 +346,7 @@ public class UserInfoActivity extends BaseActivity {
                             listView.removeHeaderView(view);
                             listView.addHeaderView(view);
                             listView.setAdapter(recommendAdapter);
-                        }else {
+                        } else {
                             recommendList.clear();
                             recommendAdapter = new RecommendAdapter(context, recommendList);
                             listView.removeHeaderView(view);
@@ -362,9 +355,12 @@ public class UserInfoActivity extends BaseActivity {
                         }
 
                     } else {
-                        recommendList.addAll(response.getList());
-                        recommendAdapter.notifyDataSetChanged();
-                        timestamp = String.valueOf(response.getInfo().getNp());
+                        if (response.getList() != null) {
+                            recommendList.addAll(response.getList());
+                            recommendAdapter.notifyDataSetChanged();
+                            timestamp = String.valueOf(response.getInfo().getNp());
+                        }
+
                     }
                 }
             }
@@ -372,7 +368,7 @@ public class UserInfoActivity extends BaseActivity {
     }
 
 
-    private void getUserShared(){
+    private void getUserShared() {
         NetApi.getUserShared(timestamp, userid, new OkHttpClientManager.ResultCallback<Recommend>() {
             @Override
             public void onError(Request request, Exception e) {
@@ -381,9 +377,9 @@ public class UserInfoActivity extends BaseActivity {
 
             @Override
             public void onResponse(Recommend response) {
-                if (response != null ) {
+                if (response != null) {
                     if (timestamp.equals("0")) {
-                        if (response.getList() != null){
+                        if (response.getList() != null) {
                             recommendList.clear();
                             recommendList = response.getList();
                             timestamp = String.valueOf(response.getInfo().getNp());
@@ -391,7 +387,7 @@ public class UserInfoActivity extends BaseActivity {
                             listView.removeHeaderView(view);
                             listView.addHeaderView(view);
                             listView.setAdapter(recommendAdapter);
-                        }else {
+                        } else {
                             recommendList.clear();
                             recommendAdapter = new RecommendAdapter(context, recommendList);
                             listView.removeHeaderView(view);
@@ -400,9 +396,11 @@ public class UserInfoActivity extends BaseActivity {
                         }
 
                     } else {
-                        recommendList.addAll(response.getList());
-                        recommendAdapter.notifyDataSetChanged();
-                        timestamp = String.valueOf(response.getInfo().getNp());
+                        if (response.getList() != null) {
+                            recommendList.addAll(response.getList());
+                            recommendAdapter.notifyDataSetChanged();
+                            timestamp = String.valueOf(response.getInfo().getNp());
+                        }
                     }
                 }
             }
