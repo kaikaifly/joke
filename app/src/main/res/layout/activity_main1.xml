@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    >
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#D7D7D7"
+        />
+    <RadioGroup
+        android:id="@+id/rbRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#EDEDED"
+        android:paddingTop="3dp"
+        android:paddingBottom="2dp"
+        >
+
+        <RadioButton
+            android:id="@+id/rbJingHua"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="精华"
+            android:textSize="12sp"
+            android:drawableTop="@drawable/selector_tab_jinghua"
+            android:textColor="#404040"
+            android:gravity="center"
+            android:button="@null"
+            android:background="@null"
+
+            />
+        <RadioButton
+            android:id="@+id/rbXinTie"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/selector_tab_xintie"
+            android:text="新帖"
+            android:textSize="12sp"
+            android:textColor="#404040"
+            android:gravity="center"
+            android:button="@null"
+            android:background="@null"
+            />
+        <RadioButton
+            android:id="@+id/rbChuanYue"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/selector_tab_chuanyue"
+            android:text="穿越"
+            android:textSize="12sp"
+            android:textColor="#404040"
+            android:gravity="center"
+            android:button="@null"
+            android:background="@null"
+            />
+        <RadioButton
+            android:id="@+id/rbMine"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/selector_tab_mine"
+            android:text="我的"
+            android:textSize="12sp"
+            android:textColor="#404040"
+            android:gravity="center"
+            android:button="@null"
+            android:background="@null"
+
+            />
+
+    </RadioGroup>
+
+
+
+</LinearLayout>

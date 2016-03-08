@@ -75,6 +75,25 @@ public class Recommend {
 
     public static class ListEntity {
 
+        public ListEntity(String comment, String bookmark, String text, String up, String share_url, int down, String forward, UEntity u, String passtime, VideoEntity video, ImageEntity image, HtmlEntity html, GifEntity gif, String type, String id, List<TagsEntity> tags) {
+            this.comment = comment;
+            this.bookmark = bookmark;
+            this.text = text;
+            this.up = up;
+            this.share_url = share_url;
+            this.down = down;
+            this.forward = forward;
+            this.u = u;
+            this.passtime = passtime;
+            this.video = video;
+            this.image = image;
+            this.html = html;
+            this.gif = gif;
+            this.type = type;
+            this.id = id;
+            this.tags = tags;
+        }
+
         private String comment;
         private String bookmark;
         @SerializedName("text")
@@ -87,29 +106,10 @@ public class Recommend {
         private int down;
         @SerializedName("forward")
         private String forward;
-        /**
-         * header : ["http://qzapp.qlogo.cn/qzapp/100336987/E0B16731FF6EAB195987D6EEB74BFA5D/100","http://qzapp.qlogo.cn/qzapp/100336987/E0B16731FF6EAB195987D6EEB74BFA5D/100"]
-         * is_v : false
-         * uid : 16851864
-         * is_vip : false
-         * name :    1 、
-         */
-
         @SerializedName("u")
         private UEntity u;
         @SerializedName("passtime")
         private String passtime;
-        /**
-         * playfcount : 9
-         * height : 480
-         * width : 480
-         * video : ["http://wvideo.spriteapp.cn/video/2016/0302/56d6a79735cac_wpd.mp4","http://dvideo.spriteapp.cn/video/2016/0302/56d6a79735cac_wpd.mp4","http://dv.spriteapp.cn/video/2016/0302/56d6a79735cac_wpd.mp4"]
-         * duration : 61
-         * playcount : 215
-         * thumbnail : ["http://wimg.spriteapp.cn/picture/2016/0302/56d6a79735cac_wpd.jpg","http://dimg.spriteapp.cn/picture/2016/0302/56d6a79735cac_wpd.jpg"]
-         * download : ["http://wvideo.spriteapp.cn/video/2016/0302/56d6a79735cac_wpc.mp4","http://dvideo.spriteapp.cn/video/2016/0302/56d6a79735cac_wpc.mp4","http://dv.spriteapp.cn/video/2016/0302/56d6a79735cac_wpc.mp4"]
-         */
-
         @SerializedName("video")
         private VideoEntity video;
         @SerializedName("image")
@@ -122,10 +122,7 @@ public class Recommend {
         private String type;
         @SerializedName("id")
         private String id;
-        /**
-         * id : 55
-         * name : 微视频
-         */
+
 
         private List<TagsEntity> tags;
 

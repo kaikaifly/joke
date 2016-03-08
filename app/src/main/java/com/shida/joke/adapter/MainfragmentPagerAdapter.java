@@ -16,9 +16,8 @@ public class MainfragmentPagerAdapter extends FragmentPagerAdapter {
     private final String[] TITLES = { "推荐","图片", "段子","视频","排行","社会","美女","游戏"};
     Context context;
 
-    public MainfragmentPagerAdapter(Context context,FragmentManager fm, ArrayList<Fragment> fragmentList) {
+    public MainfragmentPagerAdapter(FragmentManager fm, ArrayList<Fragment> fragmentList) {
         super(fm);
-        this.context = context;
         this.fragmentList = fragmentList;
     }
 

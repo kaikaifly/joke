@@ -27,7 +27,7 @@ public class WelcomeActivity extends BaseActivity {
         wel.postDelayed(new Runnable() {
             @Override
             public void run() {
-               startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+               startActivity(new Intent(WelcomeActivity.this, MainActivity1.class));
                 finish();
             }
         }, 1);

@@ -1,38 +1,38 @@
-package com.shida.joke.ui.activity;
+package com.shida.joke.ui.fragment;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.shida.joke.R;
 import com.shida.joke.adapter.MainfragmentPagerAdapter;
-import com.shida.joke.ui.fragment.BeautyFragment;
-import com.shida.joke.ui.fragment.GameFragment;
-import com.shida.joke.ui.fragment.PictureFragment;
-import com.shida.joke.ui.fragment.RankingFragment;
-import com.shida.joke.ui.fragment.RecommendFragment;
-import com.shida.joke.ui.fragment.SocietyFragment;
-import com.shida.joke.ui.fragment.TextFragment;
-import com.shida.joke.ui.fragment.VideoFragment;
+import com.shida.joke.base.BaseFragment;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Created by Administrator on 2016/3/8 0008.
+ */
+public class JingHuaFragment extends BaseFragment {
 
-//    @Bind(R.id.tabs)
     PagerSlidingTabStrip tabs;
-//    @Bind(R.id.pager)
     ViewPager pager;
 
-    ArrayList<Fragment>  fragmentlist = new ArrayList<>();
+    ArrayList<Fragment> fragmentlist = new ArrayList<>();
     MainfragmentPagerAdapter pagerAdapter;
 
+    public static JingHuaFragment newInstance() {
+        JingHuaFragment jingHuaFragment = new JingHuaFragment();
+        return jingHuaFragment;
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int getLayoutResId() {
+        return R.layout.fragment_jinghua;
+    }
+
+    @Override
+    protected void initView() {
 
         RecommendFragment recommendFragment = RecommendFragment.newInstance();
         PictureFragment pictureFragment = PictureFragment.newInstance();
@@ -53,16 +53,14 @@ public class MainActivity extends AppCompatActivity {
         fragmentlist.add(beautyFragment);
         fragmentlist.add(gameFragment);
 
-        tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
-        pager = (ViewPager) findViewById(R.id.pager);
+        tabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
+        pager = (ViewPager) view.findViewById(R.id.pager);
         pager.setOffscreenPageLimit(8);
 
-        pagerAdapter = new MainfragmentPagerAdapter(getSupportFragmentManager(),fragmentlist);
+        pagerAdapter = new MainfragmentPagerAdapter(getChildFragmentManager(),fragmentlist);
 
         pager.setAdapter(pagerAdapter);
         tabs.setViewPager(pager);
-
-
 
     }
 }

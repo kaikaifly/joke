@@ -343,16 +343,24 @@ public class UserInfoActivity extends BaseActivity {
 
             @Override
             public void onResponse(Recommend response) {
-                if (response != null && response.getList() != null){
-
+                if (response != null ) {
                     if (timestamp.equals("0")) {
-                        recommendList.clear();
-                        recommendList = response.getList();
-                        timestamp = String.valueOf(response.getInfo().getNp());
-                        recommendAdapter = new RecommendAdapter(context, recommendList);
-                        listView.removeHeaderView(view);
-                        listView.addHeaderView(view);
-                        listView.setAdapter(recommendAdapter);
+                        if (response.getList() != null){
+                            recommendList.clear();
+                            recommendList = response.getList();
+                            timestamp = String.valueOf(response.getInfo().getNp());
+                            recommendAdapter = new RecommendAdapter(context, recommendList);
+                            listView.removeHeaderView(view);
+                            listView.addHeaderView(view);
+                            listView.setAdapter(recommendAdapter);
+                        }else {
+                            recommendList.clear();
+                            recommendAdapter = new RecommendAdapter(context, recommendList);
+                            listView.removeHeaderView(view);
+                            listView.addHeaderView(view);
+                            listView.setAdapter(recommendAdapter);
+                        }
+
                     } else {
                         recommendList.addAll(response.getList());
                         recommendAdapter.notifyDataSetChanged();
@@ -373,15 +381,24 @@ public class UserInfoActivity extends BaseActivity {
 
             @Override
             public void onResponse(Recommend response) {
-                if (response != null && response.getList() != null) {
+                if (response != null ) {
                     if (timestamp.equals("0")) {
-                        recommendList.clear();
-                        recommendList = response.getList();
-                        timestamp = String.valueOf(response.getInfo().getNp());
-                        recommendAdapter = new RecommendAdapter(context, recommendList);
-                        listView.removeHeaderView(view);
-                        listView.addHeaderView(view);
-                        listView.setAdapter(recommendAdapter);
+                        if (response.getList() != null){
+                            recommendList.clear();
+                            recommendList = response.getList();
+                            timestamp = String.valueOf(response.getInfo().getNp());
+                            recommendAdapter = new RecommendAdapter(context, recommendList);
+                            listView.removeHeaderView(view);
+                            listView.addHeaderView(view);
+                            listView.setAdapter(recommendAdapter);
+                        }else {
+                            recommendList.clear();
+                            recommendAdapter = new RecommendAdapter(context, recommendList);
+                            listView.removeHeaderView(view);
+                            listView.addHeaderView(view);
+                            listView.setAdapter(recommendAdapter);
+                        }
+
                     } else {
                         recommendList.addAll(response.getList());
                         recommendAdapter.notifyDataSetChanged();
@@ -402,15 +419,15 @@ public class UserInfoActivity extends BaseActivity {
 
             @Override
             public void onResponse(Recommend response) {
+                listView.removeHeaderView(view);
+                listView.addHeaderView(view);
                 if (response != null && response.getList() != null) {
-
                     if (timestamp.equals("0")) {
                         recommendList.clear();
                         recommendList = response.getList();
                         timestamp = String.valueOf(response.getInfo().getNp());
                         recommendAdapter = new RecommendAdapter(context, recommendList);
-                        listView.removeHeaderView(view);
-                        listView.addHeaderView(view);
+
                         listView.setAdapter(recommendAdapter);
                     } else {
                         recommendList.addAll(response.getList());
