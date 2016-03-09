@@ -16,6 +16,7 @@ import com.shida.joke.ui.activity.CommentActivity;
 import com.shida.joke.ui.activity.PictureDetailActivity;
 import com.shida.joke.ui.activity.UserInfoActivity;
 import com.shida.joke.utils.GlideCircleTransform;
+import com.shida.joke.utils.SharedUtils;
 
 import java.util.List;
 
@@ -47,7 +48,12 @@ public class PictureAdapter extends BaseListAdapter<Picture.ListEntity, PictureA
 //        Display display = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
 //        display.getWidth(); // to get width of the screen
 //        display.getHeight(); // to get height of the Screen
-
+        holder.shared.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedUtils.showShare(context);
+            }
+        });
 
 
         Glide.with(context)
@@ -150,7 +156,7 @@ public class PictureAdapter extends BaseListAdapter<Picture.ListEntity, PictureA
         @Bind(R.id.hate)
         TextView hate;
         @Bind(R.id.shared)
-        ImageView shared;
+        LinearLayout shared;
         @Bind(R.id.comment)
         LinearLayout comment;
         @Bind(R.id.commentCount)

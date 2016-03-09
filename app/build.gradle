@@ -41,4 +41,5 @@ dependencies {
     compile 'com.android.support:support-v4:19.1.0'
     compile 'com.commit451:PhotoView:1.2.4'
     compile project(':vitamio')
+    compile files('libs/MobCommons-2016.0301.1053.jar')
 }

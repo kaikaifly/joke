@@ -11,8 +11,10 @@ import com.shida.joke.base.BaseActivity;
 import com.shida.joke.ui.fragment.ChuanYueFragment;
 import com.shida.joke.ui.fragment.JingHuaFragment;
 import com.shida.joke.ui.fragment.XinTieFragment;
+import com.shida.joke.ui.fragment.xintie.MineFragment;
 
 import butterknife.Bind;
+import cn.sharesdk.framework.ShareSDK;
 
 /**
  * Created by Administrator on 2016/3/8 0008.
@@ -32,6 +34,7 @@ public class MainActivity1 extends BaseActivity {
     JingHuaFragment jingHuaFragment;
     XinTieFragment xinTieFragment;
     ChuanYueFragment chuanYueFragment;
+    MineFragment mineFragment;
     @Override
     protected int getLayoutResId() {
         return R.layout.activity_main1;
@@ -39,6 +42,7 @@ public class MainActivity1 extends BaseActivity {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
+        ShareSDK.initSDK(this);
         initTab();
     }
 
@@ -56,9 +60,9 @@ public class MainActivity1 extends BaseActivity {
                     case R.id.rbChuanYue:
                         setTabSelect(2);
                         break;
-//                    case R.id.rbShopCart:
-//                        setTabSelect(3);
-//                        break;
+                    case R.id.rbMine:
+                        setTabSelect(3);
+                        break;
 //                    case R.id.rbMine:
 //                        setTabSelect(4);
 //                        break;
@@ -112,21 +116,20 @@ public class MainActivity1 extends BaseActivity {
                     transaction.show(chuanYueFragment);
                 }
                 break;
-//            case 3:
-//
+            case 3:
+
 //                rbShopCart.setTextColor(getResources().getColor(R.color.red));
-//                shopCartFragment = (ShopCartFragment) fragmentManager.findFragmentByTag("TAG4");
-//                hideTab(transaction);
-//                if (shopCartFragment == null) {
-//                    shopCartFragment = ShopCartFragment.newInstance();
-//                    transaction.add(R.id.content, shopCartFragment, "TAG4");
-//                } else {
-//                    BusProvider.getInstance().post(new RefreshShopCartEvent());//// TODO: 2015/12/18 0018 刷新购物车数据
-//                    transaction.show(shopCartFragment);
-//
-//                }
-//
-//                break;
+                mineFragment = (MineFragment) fragmentManager.findFragmentByTag("TAG4");
+                hideTab(transaction);
+                if (mineFragment == null) {
+                    mineFragment = MineFragment.newInstance();
+                    transaction.add(R.id.content, mineFragment, "TAG4");
+                } else {
+                    transaction.show(mineFragment);
+
+                }
+
+                break;
 //            case 4:
 //                rbMine.setTextColor(getResources().getColor(R.color.red));
 //                mineFragment = (MineFragment) fragmentManager.findFragmentByTag("TAG5");
@@ -152,11 +155,17 @@ public class MainActivity1 extends BaseActivity {
         if (chuanYueFragment != null) {
             transaction.hide(chuanYueFragment);
         }
-//        if (mineFragment != null) {
-//            transaction.hide(mineFragment);
-//        }
+        if (mineFragment != null) {
+            transaction.hide(mineFragment);
+        }
 //        if (findFragment != null) {
 //            transaction.hide(findFragment);
 //        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        ShareSDK.stopSDK(this);
+        super.onDestroy();
     }
 }

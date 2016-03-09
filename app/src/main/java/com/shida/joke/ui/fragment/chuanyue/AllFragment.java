@@ -34,8 +34,7 @@ public class AllFragment extends BaseFragment {
     @Bind(R.id.listView)
     ListView listView;
 
-    @Bind(R.id.button)
-    Button button;
+
     RecommendAdapter recommendAdapter;
 
     String timestamp = "0";
@@ -64,12 +63,7 @@ public class AllFragment extends BaseFragment {
         });
         initRefreshView();
         mPtrFrame.autoRefresh();
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPtrFrame.autoRefresh();
-            }
-        });
+
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {

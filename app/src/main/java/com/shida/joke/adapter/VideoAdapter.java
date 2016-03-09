@@ -16,6 +16,7 @@ import com.shida.joke.ui.activity.CommentActivity;
 import com.shida.joke.ui.activity.PlayVideoActivity;
 import com.shida.joke.ui.activity.UserInfoActivity;
 import com.shida.joke.utils.GlideCircleTransform;
+import com.shida.joke.utils.SharedUtils;
 
 import java.util.List;
 
@@ -43,6 +44,12 @@ public class VideoAdapter extends BaseListAdapter<Video.ListEntity, VideoAdapter
 
     @Override
     protected void onBindVHolder(ViewHolder holder, final Video.ListEntity data, int position) {
+        holder.shared.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedUtils.showShare(context);
+            }
+        });
 
         Glide.with(context)
                 .load(data.getU().getHeader().get(0))
@@ -124,7 +131,7 @@ public class VideoAdapter extends BaseListAdapter<Video.ListEntity, VideoAdapter
         @Bind(R.id.hate)
         TextView hate;
         @Bind(R.id.shared)
-        ImageView shared;
+        LinearLayout shared;
         @Bind(R.id.comment)
         LinearLayout comment;
         @Bind(R.id.commentCount)

@@ -2,7 +2,6 @@ package com.shida.joke.ui.fragment.jinghua;
 
 import android.view.View;
 import android.widget.AbsListView;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.shida.joke.NetApi;
@@ -30,9 +29,9 @@ public class RecommendFragment extends BaseFragment {
     PtrClassicFrameLayout mPtrFrame;
     @Bind(R.id.listView)
     ListView listView;
-
-    @Bind(R.id.button)
-    Button button;
+//
+//    @Bind(R.id.button)
+//    Button button;
     RecommendAdapter recommendAdapter;
 
 

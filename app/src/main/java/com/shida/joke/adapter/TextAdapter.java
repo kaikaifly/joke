@@ -15,6 +15,7 @@ import com.shida.joke.bean.Text;
 import com.shida.joke.ui.activity.CommentActivity;
 import com.shida.joke.ui.activity.UserInfoActivity;
 import com.shida.joke.utils.GlideCircleTransform;
+import com.shida.joke.utils.SharedUtils;
 
 import java.util.List;
 
@@ -42,7 +43,12 @@ public class TextAdapter extends BaseListAdapter<Text.ListEntity, TextAdapter.Vi
 
     @Override
     protected void onBindVHolder(ViewHolder holder, final Text.ListEntity data, int position) {
-
+        holder.shared.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedUtils.showShare(context);
+            }
+        });
         Glide.with(context)
                 .load(data.getU().getHeader().get(0))
                 .transform(new GlideCircleTransform(context))
@@ -94,7 +100,7 @@ public class TextAdapter extends BaseListAdapter<Text.ListEntity, TextAdapter.Vi
         @Bind(R.id.hate)
         TextView hate;
         @Bind(R.id.shared)
-        ImageView shared;
+        LinearLayout shared;
         @Bind(R.id.comment)
         LinearLayout comment;
         @Bind(R.id.commentCount)

@@ -3,7 +3,6 @@ package com.shida.joke.ui.fragment.chuanyue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -34,8 +33,7 @@ public class TextFragment extends BaseFragment {
     @Bind(R.id.listView)
     ListView listView;
 
-    @Bind(R.id.button)
-    Button button;
+
     RecommendAdapter recommendAdapter;
 
     String timestamp = "0";
@@ -63,12 +61,7 @@ public class TextFragment extends BaseFragment {
         });
         initRefreshView();
         mPtrFrame.autoRefresh();
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPtrFrame.autoRefresh();
-            }
-        });
+
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {

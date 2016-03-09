@@ -30,15 +30,15 @@
 
             </ListView>
         </in.srain.cube.views.ptr.PtrClassicFrameLayout>
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="刷新"
-            android:layout_gravity="bottom|right"
-            android:layout_marginBottom="70dp"
-            android:layout_marginRight="20dp"
-            />
+        <!--<Button-->
+            <!--android:id="@+id/button"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="刷新"-->
+            <!--android:layout_gravity="bottom|right"-->
+            <!--android:layout_marginBottom="70dp"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--/>-->
     </FrameLayout>
 
 

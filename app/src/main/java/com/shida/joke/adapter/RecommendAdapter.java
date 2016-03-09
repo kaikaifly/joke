@@ -19,6 +19,7 @@ import com.shida.joke.ui.activity.PlayVideoActivity;
 import com.shida.joke.ui.activity.UserInfoActivity;
 import com.shida.joke.ui.activity.WebViewActivity;
 import com.shida.joke.utils.GlideCircleTransform;
+import com.shida.joke.utils.SharedUtils;
 
 import java.util.List;
 
@@ -65,10 +66,16 @@ public class RecommendAdapter extends BaseListAdapter<Recommend.ListEntity, Reco
         holder.text.setText("\n" + data.getText() + "\n");
         holder.love.setText(data.getUp());
         holder.hate.setText(String.valueOf(data.getDown()));
+        holder.shared.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedUtils.showShare(context);
+            }
+        });
 
         String ss = "";
-        if (data.getTags() != null){
-            for (int i=0;i<data.getTags().size();i++){
+        if (data.getTags() != null) {
+            for (int i = 0; i < data.getTags().size(); i++) {
                 ss = ss + data.getTags().get(i).getName() + "   ";
             }
         }
@@ -105,7 +112,7 @@ public class RecommendAdapter extends BaseListAdapter<Recommend.ListEntity, Reco
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, PictureDetailActivity.class);
-                    intent.putExtra("imagePath",data.getImage().getBig().get(0));
+                    intent.putExtra("imagePath", data.getImage().getBig().get(0));
                     context.startActivity(intent);
                 }
             });
@@ -123,7 +130,7 @@ public class RecommendAdapter extends BaseListAdapter<Recommend.ListEntity, Reco
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(context, PictureDetailActivity.class);
-                    intent.putExtra("gifPath",data.getGif().getImages().get(0));
+                    intent.putExtra("gifPath", data.getGif().getImages().get(0));
                     context.startActivity(intent);
                 }
             });
@@ -186,6 +193,8 @@ public class RecommendAdapter extends BaseListAdapter<Recommend.ListEntity, Reco
 
     }
 
+
+
     class ViewHolder extends BaseListAdapter.ViewHolder {
         @Bind(R.id.headPic)
         ImageView headPic;
@@ -210,7 +219,7 @@ public class RecommendAdapter extends BaseListAdapter<Recommend.ListEntity, Reco
         @Bind(R.id.hate)
         TextView hate;
         @Bind(R.id.shared)
-        ImageView shared;
+        LinearLayout shared;
         @Bind(R.id.comment)
         LinearLayout comment;
         @Bind(R.id.commentCount)
