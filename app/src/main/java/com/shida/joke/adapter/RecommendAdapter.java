@@ -67,9 +67,12 @@ public class RecommendAdapter extends BaseListAdapter<Recommend.ListEntity, Reco
         holder.hate.setText(String.valueOf(data.getDown()));
 
         String ss = "";
-        for (int i=0;i<data.getTags().size();i++){
-            ss = ss + data.getTags().get(i).getName() + "   ";
+        if (data.getTags() != null){
+            for (int i=0;i<data.getTags().size();i++){
+                ss = ss + data.getTags().get(i).getName() + "   ";
+            }
         }
+
         holder.label.setText(ss);
 
         holder.comment.setOnClickListener(new View.OnClickListener() {

@@ -13,17 +13,19 @@ import java.util.ArrayList;
 public class MainfragmentPagerAdapter extends FragmentPagerAdapter {
 
     ArrayList<Fragment> fragmentList;
-    private final String[] TITLES = { "推荐","图片", "段子","视频","排行","社会","美女","游戏"};
+//    private final String[] TITLES = { "推荐","图片", "段子","视频","排行","社会","美女","游戏"};
+    String[] title;
     Context context;
 
-    public MainfragmentPagerAdapter(FragmentManager fm, ArrayList<Fragment> fragmentList) {
+    public MainfragmentPagerAdapter(String[] title,FragmentManager fm, ArrayList<Fragment> fragmentList) {
         super(fm);
+        this.title = title;
         this.fragmentList = fragmentList;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return TITLES[position];
+        return title[position];
     }
 
     @Override

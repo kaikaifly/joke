@@ -56,6 +56,65 @@ public class NetApi {
 
 
 
+    // TODO: 2016/3/9 0009 新帖—全部 http://s.budejie.com/topic/list/zuixin/1/budejie-android-6.3.2/0-20.json
+    public static void getAll_xintie(String timestamp,  OkHttpClientManager.ResultCallback<Recommend> resultCallback){
+        OkHttpClientManager.getAsyn("http://s.budejie.com/topic/list/zuixin/1/budejie-android-6.3.2/"+timestamp+"-20.json", resultCallback);
+    }
+    // TODO: 2016/3/9 0009 新帖—视频 http://s.budejie.com/topic/list/zuixin/41/budejie-android-6.3.2/0-20.json
+    public static void getVideo_xintie(String timestamp,  OkHttpClientManager.ResultCallback<Recommend> resultCallback){
+        OkHttpClientManager.getAsyn("http://s.budejie.com/topic/list/zuixin/41/budejie-android-6.3.2/"+timestamp+"-20.json", resultCallback);
+    }
+    // TODO: 2016/3/9 0009 新帖—图片 http://s.budejie.com/topic/list/zuixin/10/budejie-android-6.3.2/0-20.json
+    public static void getPic_xintie(String timestamp,  OkHttpClientManager.ResultCallback<Recommend> resultCallback){
+        OkHttpClientManager.getAsyn("http://s.budejie.com/topic/list/zuixin/10/budejie-android-6.3.2/"+timestamp+"-20.json", resultCallback);
+    }
+    // TODO: 2016/3/9 0009 新帖—段子 http://s.budejie.com/topic/list/zuixin/29/budejie-android-6.3.2/0-20.json
+    public static void getText_xintie(String timestamp,  OkHttpClientManager.ResultCallback<Recommend> resultCallback){
+        OkHttpClientManager.getAsyn("http://s.budejie.com/topic/list/zuixin/29/budejie-android-6.3.2/"+timestamp+"-20.json", resultCallback);
+    }
+    // TODO: 2016/3/9 0009 新帖—美女 http://s.budejie.com/topic/tag-topic/117/hot/budejie-android-6.3.2/0-20.json
+    public static void getBeauty_xintie(String timestamp,  OkHttpClientManager.ResultCallback<Recommend> resultCallback){
+        OkHttpClientManager.getAsyn("http://s.budejie.com/topic/tag-topic/117/hot/budejie-android-6.3.2/"+timestamp+"-20.json", resultCallback);
+    }
+    // TODO: 2016/3/9 0009 新帖—游戏 http://s.budejie.com/topic/tag-topic/164/hot/budejie-android-6.3.2/0-20.json
+    public static void getGame_xintie(String timestamp,  OkHttpClientManager.ResultCallback<Recommend> resultCallback){
+        OkHttpClientManager.getAsyn("http://s.budejie.com/topic/tag-topic/164/hot/budejie-android-6.3.2/"+timestamp+"-20.json", resultCallback);
+    }
+    // TODO: 2016/3/9 0009 新帖—体育 http://s.budejie.com/topic/tag-topic/1930/new/budejie-android-6.3.2/0-20.json
+    public static void getSports_xintie(String timestamp,  OkHttpClientManager.ResultCallback<Recommend> resultCallback){
+        OkHttpClientManager.getAsyn("http://s.budejie.com/topic/tag-topic/1930/new/budejie-android-6.3.2/"+timestamp+"-20.json", resultCallback);
+    }
+
+
+
+
+
+
+
+    // TODO: 2016/3/9 0009 穿越—全部 http://d.api.budejie.com/topic/list/chuanyue/1/budejie-android-6.3.2/0-20.json
+    public static void getAll_chuanyue(String timestamp,  OkHttpClientManager.ResultCallback<Recommend> resultCallback){
+        OkHttpClientManager.getAsyn("http://d.api.budejie.com/topic/list/chuanyue/1/budejie-android-6.3.2/"+timestamp+"-20.json", resultCallback);
+    }
+    // TODO: 2016/3/9 0009 穿越—视频 http://d.api.budejie.com/topic/list/chuanyue/41/budejie-android-6.3.2/0-20.json
+    public static void getVideo_chuanyue(String timestamp,  OkHttpClientManager.ResultCallback<Recommend> resultCallback){
+        OkHttpClientManager.getAsyn("http://d.api.budejie.com/topic/list/chuanyue/41/budejie-android-6.3.2/"+timestamp+"-20.json", resultCallback);
+    }
+    // TODO: 2016/3/9 0009 穿越—图片 http://d.api.budejie.com/topic/list/chuanyue/10/budejie-android-6.3.2/0-20.json
+    public static void getPic_chuanyue(String timestamp,  OkHttpClientManager.ResultCallback<Recommend> resultCallback){
+        OkHttpClientManager.getAsyn("http://d.api.budejie.com/topic/list/chuanyue/10/budejie-android-6.3.2/"+timestamp+"-20.json", resultCallback);
+    }
+    // TODO: 2016/3/9 0009 穿越—段子 http://d.api.budejie.com/topic/list/chuanyue/29/budejie-android-6.3.2/0-20.json
+    public static void getText_chuanyue(String timestamp,  OkHttpClientManager.ResultCallback<Recommend> resultCallback){
+        OkHttpClientManager.getAsyn("http://d.api.budejie.com/topic/list/chuanyue/29/budejie-android-6.3.2/"+timestamp+"-20.json", resultCallback);
+    }
+
+
+
+
+
+
+
+
     // TODO: 2016/3/3 0003 评论  http://api.budejie.com/api/api_open.php?a=dataList&c=comment&hot=1&data_id=17435441&page=5&per=20
     public static void getComment(String dataId, String page,OkHttpClientManager.ResultCallback<Comment> resultCallback){
         OkHttpClientManager.getAsyn("http://api.budejie.com/api/api_open.php?a=dataList&c=comment&hot=1&data_id="+dataId+"&page="+ page +"&per=20", resultCallback);

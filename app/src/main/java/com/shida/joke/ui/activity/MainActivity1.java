@@ -8,6 +8,7 @@ import android.widget.RadioGroup;
 
 import com.shida.joke.R;
 import com.shida.joke.base.BaseActivity;
+import com.shida.joke.ui.fragment.ChuanYueFragment;
 import com.shida.joke.ui.fragment.JingHuaFragment;
 import com.shida.joke.ui.fragment.XinTieFragment;
 
@@ -30,6 +31,7 @@ public class MainActivity1 extends BaseActivity {
 
     JingHuaFragment jingHuaFragment;
     XinTieFragment xinTieFragment;
+    ChuanYueFragment chuanYueFragment;
     @Override
     protected int getLayoutResId() {
         return R.layout.activity_main1;
@@ -51,9 +53,9 @@ public class MainActivity1 extends BaseActivity {
                     case R.id.rbXinTie:
                         setTabSelect(1);
                         break;
-//                    case R.id.rbXinTie:
-//                        setTabSelect(2);
-//                        break;
+                    case R.id.rbChuanYue:
+                        setTabSelect(2);
+                        break;
 //                    case R.id.rbShopCart:
 //                        setTabSelect(3);
 //                        break;
@@ -99,17 +101,17 @@ public class MainActivity1 extends BaseActivity {
                     transaction.show(xinTieFragment);
                 }
                 break;
-//            case 2:
-//                rbFind.setTextColor(getResources().getColor(R.color.red));
-//                findFragment = (FindFragment) fragmentManager.findFragmentByTag("TAG3");
-//                hideTab(transaction);
-//                if (findFragment == null) {
-//                    findFragment = FindFragment.newInstance();
-//                    transaction.add(R.id.content, findFragment, "TAG3");
-//                } else {
-//                    transaction.show(findFragment);
-//                }
-//                break;
+            case 2:
+//                rbChuanYue.setTextColor(getResources().getColor(R.color.red));
+                chuanYueFragment = (ChuanYueFragment) fragmentManager.findFragmentByTag("TAG3");
+                hideTab(transaction);
+                if (chuanYueFragment == null) {
+                    chuanYueFragment = ChuanYueFragment.newInstance();
+                    transaction.add(R.id.content, chuanYueFragment, "TAG3");
+                } else {
+                    transaction.show(chuanYueFragment);
+                }
+                break;
 //            case 3:
 //
 //                rbShopCart.setTextColor(getResources().getColor(R.color.red));
@@ -147,9 +149,9 @@ public class MainActivity1 extends BaseActivity {
         if (xinTieFragment != null) {
             transaction.hide(xinTieFragment);
         }
-//        if (shopCartFragment != null) {
-//            transaction.hide(shopCartFragment);
-//        }
+        if (chuanYueFragment != null) {
+            transaction.hide(chuanYueFragment);
+        }
 //        if (mineFragment != null) {
 //            transaction.hide(mineFragment);
 //        }
