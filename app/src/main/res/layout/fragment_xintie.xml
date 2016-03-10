@@ -24,6 +24,7 @@
         app:pstsShouldExpand="true"
         app:pstsIndicatorHeight="3dp"
         app:pstsTabPaddingLeftRight="20dp"
+        app:pstsDividerColor="#ffffff"
         />
 
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
@@ -19,7 +20,7 @@
             android:id="@+id/headPic"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@drawable/ic_launcher"
+            tools:background="@drawable/ic_launcher"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="190dp"
             />
@@ -52,7 +53,7 @@
                         android:id="@+id/sex"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="♂"
+                        tools:text="♂"
                         android:textSize="12sp"
                         android:textColor="#ffffff"
                         android:layout_gravity="center"
@@ -65,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="左手哈德门"
+                    tools:text="左手哈德门"
                     android:textSize="18sp"
                     android:textColor="#EBECEC"
                     android:layout_marginLeft="8dp"
@@ -90,7 +91,7 @@
                         android:id="@+id/fans_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1848"
+                        tools:text="1848"
                         android:layout_gravity="center"
                         android:textColor="#333333"
                         android:paddingBottom="5dp"
@@ -114,7 +115,7 @@
                         android:id="@+id/guanzhu_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2"
+                        tools:text="2"
                         android:layout_gravity="center"
                         android:textColor="#333333"
                         android:paddingBottom="5dp"
@@ -132,7 +133,7 @@
                     android:id="@+id/lv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="等级：LV11"
+                    tools:text="等级：LV11"
                     android:textColor="#555555"
                     android:paddingBottom="5dp"
                     />
@@ -142,7 +143,7 @@
                     android:id="@+id/jifen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="积分：2541"
+                    tools:text="积分：2541"
                     android:textColor="#555555"
                     />
             </RelativeLayout>
@@ -153,7 +154,7 @@
         android:id="@+id/introduction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="长恨忍心不吐谁互带U还都哀诉回答us坏"
+        tools:text="长恨忍心不吐谁互带U还都哀诉回答us坏"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         android:textSize="15sp"
@@ -177,7 +178,7 @@
                 android:id="@+id/tiezi_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="26"
+                tools:text="26"
                 android:textColor="@color/red"
                 />
             <TextView
@@ -211,7 +212,7 @@
                 android:id="@+id/shared_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="26"
+                tools:text="26"
 
                 />
             <TextView
@@ -242,7 +243,7 @@
                 android:id="@+id/comment_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="26"
+                tools:text="26"
                 />
             <TextView
                 android:id="@+id/comment_text"

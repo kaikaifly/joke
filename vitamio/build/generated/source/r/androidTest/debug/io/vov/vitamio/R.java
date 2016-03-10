@@ -28,7 +28,6 @@ public final class R {
 		public static final int scrubber_track_holo_dark = 0x7f02000c;
 	}
 	public static final class id {
-		public static final int mediacontroller_file_name = 0x7f070004;
 		public static final int mediacontroller_play_pause = 0x7f070000;
 		public static final int mediacontroller_seekbar = 0x7f070003;
 		public static final int mediacontroller_time_current = 0x7f070001;

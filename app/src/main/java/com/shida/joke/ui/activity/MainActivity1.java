@@ -76,15 +76,15 @@ public class MainActivity1 extends BaseActivity {
     public void setTabSelect(int i) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-//        rbHome.setTextColor(getResources().getColor(R.color.white));
-//        rbClass.setTextColor(getResources().getColor(R.color.white));
-//        rbFind.setTextColor(getResources().getColor(R.color.white));
-//        rbShopCart.setTextColor(getResources().getColor(R.color.white));
-//        rbMine.setTextColor(getResources().getColor(R.color.white));
+
+        rbJingHua.setTextColor(getResources().getColor(R.color.grey_normal));
+        rbXinTie.setTextColor(getResources().getColor(R.color.grey_normal));
+        rbChuanYue.setTextColor(getResources().getColor(R.color.grey_normal));
+        rbMine.setTextColor(getResources().getColor(R.color.grey_normal));
 
         switch (i) {
             case 0:
-//                rbHome.setTextColor(getResources().getColor(R.color.red));
+                rbJingHua.setTextColor(getResources().getColor(R.color.grey_press));
                 jingHuaFragment = (JingHuaFragment) fragmentManager.findFragmentByTag("TAG1");
                 hideTab(transaction);
                 if (jingHuaFragment == null) {
@@ -95,7 +95,7 @@ public class MainActivity1 extends BaseActivity {
                 }
                 break;
             case 1:
-//                rbClass.setTextColor(getResources().getColor(R.color.red));
+                rbXinTie.setTextColor(getResources().getColor(R.color.grey_press));
                 xinTieFragment = (XinTieFragment) fragmentManager.findFragmentByTag("TAG2");
                 hideTab(transaction);
                 if (xinTieFragment == null) {
@@ -106,7 +106,7 @@ public class MainActivity1 extends BaseActivity {
                 }
                 break;
             case 2:
-//                rbChuanYue.setTextColor(getResources().getColor(R.color.red));
+                rbChuanYue.setTextColor(getResources().getColor(R.color.grey_press));
                 chuanYueFragment = (ChuanYueFragment) fragmentManager.findFragmentByTag("TAG3");
                 hideTab(transaction);
                 if (chuanYueFragment == null) {
@@ -118,7 +118,7 @@ public class MainActivity1 extends BaseActivity {
                 break;
             case 3:
 
-//                rbShopCart.setTextColor(getResources().getColor(R.color.red));
+                rbMine.setTextColor(getResources().getColor(R.color.grey_press));
                 mineFragment = (MineFragment) fragmentManager.findFragmentByTag("TAG4");
                 hideTab(transaction);
                 if (mineFragment == null) {

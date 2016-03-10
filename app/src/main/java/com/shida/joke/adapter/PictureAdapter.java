@@ -75,14 +75,14 @@ public class PictureAdapter extends BaseListAdapter<Picture.ListEntity, PictureA
             Glide.with(context)
                     .load(data.getImage().getBig().get(0))
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                    .placeholder(R.mipmap.ic_launcher)
+                    .placeholder(R.drawable.loading_icon)
                     .into(holder.imgae);
         }else if (data.getType().equals("gif")){
 
             Glide.with(context)
                     .load(data.getGif().getImages().get(0))
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                    .placeholder(R.mipmap.ic_launcher)
+                    .placeholder(R.drawable.loading_icon)
                     .into(holder.imgae);
         }
         holder.imgae.setOnClickListener(new View.OnClickListener() {

@@ -9,6 +9,9 @@ import com.shida.joke.R;
 import com.shida.joke.adapter.RecommendAdapter;
 import com.shida.joke.base.BaseFragment;
 import com.shida.joke.bean.Recommend;
+import com.shida.joke.event.BusProvider;
+import com.shida.joke.event.ShowProgressBarEvent;
+import com.shida.joke.event.StopProgressBarEvent;
 import com.shida.joke.utils.OkHttpClientManager;
 import com.squareup.okhttp.Request;
 
@@ -105,8 +108,21 @@ public class RecommendFragment extends BaseFragment {
     private void getData() {
         NetApi.getRecommend(timestamp, new OkHttpClientManager.ResultCallback<Recommend>() {
             @Override
+            public void onBefore(Request request) {
+                BusProvider.getInstance().post(new ShowProgressBarEvent());
+            }
+
+            @Override
+            public void onAfter() {
+                BusProvider.getInstance().post(new StopProgressBarEvent());
+            }
+
+            @Override
             public void onError(Request request, Exception e) {
                 e.printStackTrace();
+                BusProvider.getInstance().post(new StopProgressBarEvent());
+                mPtrFrame.refreshComplete();
+                showToast("请求超时");
             }
 
             @Override

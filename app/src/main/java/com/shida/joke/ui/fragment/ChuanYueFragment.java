@@ -1,5 +1,6 @@
 package com.shida.joke.ui.fragment;
 
+import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
@@ -51,6 +52,10 @@ public class ChuanYueFragment extends BaseFragment {
         tabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
         pager = (ViewPager) view.findViewById(R.id.pager);
         pager.setOffscreenPageLimit(8);
+
+        tabs.setTextSize(40);
+        tabs.setTextColor(getResources().getColor(R.color.tabs_black));
+        tabs.setTypeface(Typeface.create(Typeface.SERIF, Typeface.NORMAL), Typeface.NORMAL);
 
         String[] title = { "全部","视频","图片", "段子"};
         pagerAdapter = new MainfragmentPagerAdapter(title,getChildFragmentManager(),fragmentlist);

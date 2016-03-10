@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -11,7 +12,7 @@
         android:id="@+id/headPic"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:background="@drawable/ic_launcher"
+        tools:background="@drawable/ic_launcher"
         />
     <LinearLayout
         android:id="@+id/b"
@@ -37,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="3555"
+            tools:text="3555"
             android:textColor="#A0A0A0"
             />
     </LinearLayout>
@@ -61,7 +62,7 @@
                 android:id="@+id/sex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="♂"
+                tools:text="♂"
                 android:textColor="#76BAE8"
                 android:textSize="18sp"
                 />
@@ -70,7 +71,7 @@
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mo言"
+                tools:text="Mo言"
                 android:textColor="#A0A0A0"
                 android:textSize="14sp"
                 />
@@ -82,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
-            android:text="这个世界怎么了，下一么了，下一么了，下一么了，下一么了，下一么了，下一么了，下一么了，下一么了，下一代，"
+            tools:text="这个世界怎么了，下一么了，下一么了，下一么了，下一么了，下一么了，下一么了，下一么了，下一么了，下一代，"
             android:textColor="#333333"
             />
     </LinearLayout>

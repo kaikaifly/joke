@@ -7,4 +7,8 @@
     <color name="red">#E42E16</color>
     <color name="grey">#848484</color>
     <color name="white">#ffffff</color>
+
+    <color name="grey_normal">#8E8987</color>
+    <color name="grey_press">#484949</color>
+    <color name="tabs_black">#4B4B4C</color>
 </resources>

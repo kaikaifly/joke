@@ -257,9 +257,9 @@ public class MediaController extends FrameLayout {
 
     mEndTime = (TextView) v.findViewById(getResources().getIdentifier("mediacontroller_time_total", "id", mContext.getPackageName()));
     mCurrentTime = (TextView) v.findViewById(getResources().getIdentifier("mediacontroller_time_current", "id", mContext.getPackageName()));
-    mFileName = (TextView) v.findViewById(getResources().getIdentifier("mediacontroller_file_name", "id", mContext.getPackageName()));
-    if (mFileName != null)
-      mFileName.setText(mTitle);
+//    mFileName = (TextView) v.findViewById(getResources().getIdentifier("mediacontroller_file_name", "id", mContext.getPackageName()));
+//    if (mFileName != null)
+//      mFileName.setText(mTitle);
   }
 
   public void setMediaPlayer(MediaPlayerControl player) {
@@ -285,11 +285,11 @@ public class MediaController extends FrameLayout {
    *
    * @param name
    */
-  public void setFileName(String name) {
-    mTitle = name;
-    if (mFileName != null)
-      mFileName.setText(mTitle);
-  }
+//  public void setFileName(String name) {
+//    mTitle = name;
+//    if (mFileName != null)
+//      mFileName.setText(mTitle);
+//  }
 
   /**
    * Set the View to hold some information when interact with the

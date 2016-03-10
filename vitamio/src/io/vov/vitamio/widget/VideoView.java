@@ -37,6 +37,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import io.vov.vitamio.MediaFormat;
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.MediaPlayer.OnBufferingUpdateListener;
@@ -48,14 +52,8 @@ import io.vov.vitamio.MediaPlayer.OnSeekCompleteListener;
 import io.vov.vitamio.MediaPlayer.OnTimedTextListener;
 import io.vov.vitamio.MediaPlayer.OnVideoSizeChangedListener;
 import io.vov.vitamio.MediaPlayer.TrackInfo;
-import io.vov.vitamio.Vitamio;
 import io.vov.vitamio.utils.Log;
 import io.vov.vitamio.utils.ScreenResolution;
-
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Displays a video file. The VideoView class can load images from various
@@ -488,11 +486,11 @@ public class VideoView extends SurfaceView implements MediaController.MediaPlaye
       mMediaController.setAnchorView(anchorView);
       mMediaController.setEnabled(isInPlaybackState());
 
-      if (mUri != null) {
-        List<String> paths = mUri.getPathSegments();
-        String name = paths == null || paths.isEmpty() ? "null" : paths.get(paths.size() - 1);
-        mMediaController.setFileName(name);
-      }
+//      if (mUri != null) {
+//        List<String> paths = mUri.getPathSegments();
+//        String name = paths == null || paths.isEmpty() ? "null" : paths.get(paths.size() - 1);
+//        mMediaController.setFileName(name);
+//      }
     }
   }
 
