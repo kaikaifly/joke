@@ -111,20 +111,17 @@ public class RecommendFragment extends BaseFragment {
             public void onBefore(Request request) {
                 BusProvider.getInstance().post(new ShowProgressBarEvent());
             }
-
             @Override
             public void onAfter() {
                 BusProvider.getInstance().post(new StopProgressBarEvent());
             }
-
             @Override
             public void onError(Request request, Exception e) {
                 e.printStackTrace();
                 BusProvider.getInstance().post(new StopProgressBarEvent());
                 mPtrFrame.refreshComplete();
-                showToast("请求超时");
+                showToast("请求超时，请检查网络！");
             }
-
             @Override
             public void onResponse(Recommend response) {
                 if (response != null) {

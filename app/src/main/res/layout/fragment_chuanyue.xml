@@ -1,41 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text="看笑话"
-        android:textSize="18sp"
-        android:textColor="@android:color/white"
-        android:gravity="center"
         android:background="#D43A32"
+        android:gravity="center"
         android:padding="10dp"
+        android:text="看笑话"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
         />
 
     <com.astuetz.PagerSlidingTabStrip
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="40dip"
-        app:pstsIndicatorColor ="#D43A32"
-        app:pstsShouldExpand="true"
-        app:pstsIndicatorHeight="3dp"
-        app:pstsTabPaddingLeftRight="20dp"
         app:pstsDividerColor="#ffffff"
+        app:pstsIndicatorColor="#D43A32"
+        app:pstsIndicatorHeight="3dp"
+        app:pstsShouldExpand="true"
+        app:pstsTabPaddingLeftRight="20dp"
         />
 
-
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
+        android:layout_gravity="center"
         >
 
-    </android.support.v4.view.ViewPager>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+        </android.support.v4.view.ViewPager>
+        <com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar
+            android:id="@+id/progress"
+            app:mlpb_progress_stoke_width="3dp"
+            app:mlpb_progress_color="#566da9"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:visibility="invisible"
+            android:layout_gravity="center"
+            />
+    </FrameLayout>
+
 
 </LinearLayout>

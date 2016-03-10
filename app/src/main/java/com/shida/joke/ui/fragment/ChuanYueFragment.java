@@ -3,15 +3,20 @@ package com.shida.joke.ui.fragment;
 import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar;
 import com.shida.joke.R;
 import com.shida.joke.adapter.MainfragmentPagerAdapter;
 import com.shida.joke.base.BaseFragment;
+import com.shida.joke.event.ShowProgressBarEvent;
+import com.shida.joke.event.StopProgressBarEvent;
 import com.shida.joke.ui.fragment.chuanyue.AllFragment;
 import com.shida.joke.ui.fragment.chuanyue.PictureFragment;
 import com.shida.joke.ui.fragment.chuanyue.TextFragment;
 import com.shida.joke.ui.fragment.chuanyue.VideoFragment;
+import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
 
@@ -21,7 +26,7 @@ import java.util.ArrayList;
 public class ChuanYueFragment extends BaseFragment {
     PagerSlidingTabStrip tabs;
     ViewPager pager;
-
+    CircleProgressBar circleProgressBar;
     ArrayList<Fragment> fragmentlist = new ArrayList<>();
     MainfragmentPagerAdapter pagerAdapter;
 
@@ -51,6 +56,7 @@ public class ChuanYueFragment extends BaseFragment {
 
         tabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
         pager = (ViewPager) view.findViewById(R.id.pager);
+        circleProgressBar = (CircleProgressBar) view.findViewById(R.id.progress);
         pager.setOffscreenPageLimit(8);
 
         tabs.setTextSize(40);
@@ -63,5 +69,14 @@ public class ChuanYueFragment extends BaseFragment {
         pager.setAdapter(pagerAdapter);
         tabs.setViewPager(pager);
 
+    }
+
+    @Subscribe
+    public void showProgressBar(ShowProgressBarEvent showProgressBarEvent){
+        circleProgressBar.setVisibility(View.VISIBLE);
+    }
+    @Subscribe
+    public void stopProgressBar(StopProgressBarEvent stopProgressBarEvent){
+        circleProgressBar.setVisibility(View.INVISIBLE);
     }
 }

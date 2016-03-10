@@ -1,4 +1,4 @@
-package com.shida.joke.ui.fragment.xintie;
+package com.shida.joke.ui.fragment;
 
 import com.shida.joke.R;
 import com.shida.joke.base.BaseFragment;

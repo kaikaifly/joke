@@ -9,6 +9,9 @@ import com.shida.joke.R;
 import com.shida.joke.adapter.VideoAdapter;
 import com.shida.joke.base.BaseFragment;
 import com.shida.joke.bean.Video;
+import com.shida.joke.event.BusProvider;
+import com.shida.joke.event.ShowProgressBarEvent;
+import com.shida.joke.event.StopProgressBarEvent;
 import com.shida.joke.utils.OkHttpClientManager;
 import com.squareup.okhttp.Request;
 
@@ -99,48 +102,23 @@ public class VideoFragment extends BaseFragment {
         });
     }
 
-
     private void getData() {
-
-        //时间
-//        Date now = new Date();
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
-//        String timestamp = dateFormat.format(now);
-
-
-//        NetApi.getVideo(timestamp, new OkHttpClientManager.ResultCallback<Picture>() {
-//            @Override
-//            public void onError(Request request, Exception e) {
-//                showToast("加载失败！");
-//            }
-//
-//            @Override
-//            public void onResponse(Picture response) {
-//                if (response != null) {
-//                    if (page == 1) {
-//                        videoList.clear();
-////                        videoList = response.getShowapi_res_body().getPagebean().getContentlist();
-////                        pictureAdapter = new PictureAdapter(getActivity(), videoList);
-////                        listView.setAdapter(pictureAdapter);
-//                        mPtrFrame.refreshComplete();
-//                    } else {
-////                        videoList.addAll(response.getShowapi_res_body().getPagebean().getContentlist());
-////                        pictureAdapter.notifyDataSetChanged();
-//                    }
-//                } else {
-//                    showToast("加载失败！");
-//                }
-//
-//
-//            }
-//        });
-
         NetApi.getVideo(timestamp, new OkHttpClientManager.ResultCallback<Video>() {
+            @Override
+            public void onBefore(Request request) {
+                BusProvider.getInstance().post(new ShowProgressBarEvent());
+            }
+            @Override
+            public void onAfter() {
+                BusProvider.getInstance().post(new StopProgressBarEvent());
+            }
             @Override
             public void onError(Request request, Exception e) {
                 e.printStackTrace();
+                BusProvider.getInstance().post(new StopProgressBarEvent());
+                mPtrFrame.refreshComplete();
+                showToast("请求超时，请检查网络！");
             }
-
             @Override
             public void onResponse(Video response) {
                 if (response != null) {

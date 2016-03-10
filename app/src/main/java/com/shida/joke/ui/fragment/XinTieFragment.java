@@ -3,11 +3,15 @@ package com.shida.joke.ui.fragment;
 import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.lsjwzh.widget.materialloadingprogressbar.CircleProgressBar;
 import com.shida.joke.R;
 import com.shida.joke.adapter.MainfragmentPagerAdapter;
 import com.shida.joke.base.BaseFragment;
+import com.shida.joke.event.ShowProgressBarEvent;
+import com.shida.joke.event.StopProgressBarEvent;
 import com.shida.joke.ui.fragment.xintie.AllFragment;
 import com.shida.joke.ui.fragment.xintie.BeautyFragment;
 import com.shida.joke.ui.fragment.xintie.GameFragment;
@@ -15,6 +19,7 @@ import com.shida.joke.ui.fragment.xintie.PictureFragment;
 import com.shida.joke.ui.fragment.xintie.SportsFragment;
 import com.shida.joke.ui.fragment.xintie.TextFragment;
 import com.shida.joke.ui.fragment.xintie.VideoFragment;
+import com.squareup.otto.Subscribe;
 
 import java.util.ArrayList;
 
@@ -25,7 +30,7 @@ public class XinTieFragment extends BaseFragment {
 
     PagerSlidingTabStrip tabs;
     ViewPager pager;
-
+    CircleProgressBar circleProgressBar;
     ArrayList<Fragment> fragmentlist = new ArrayList<>();
     MainfragmentPagerAdapter pagerAdapter;
 
@@ -60,6 +65,8 @@ public class XinTieFragment extends BaseFragment {
 
         tabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
         pager = (ViewPager) view.findViewById(R.id.pager);
+        circleProgressBar = (CircleProgressBar) view.findViewById(R.id.progress);
+
         pager.setOffscreenPageLimit(8);
         tabs.setTextSize(40);
         tabs.setTextColor(getResources().getColor(R.color.tabs_black));
@@ -71,5 +78,14 @@ public class XinTieFragment extends BaseFragment {
         pager.setAdapter(pagerAdapter);
         tabs.setViewPager(pager);
 
+    }
+
+    @Subscribe
+    public void showProgressBar(ShowProgressBarEvent showProgressBarEvent){
+        circleProgressBar.setVisibility(View.VISIBLE);
+    }
+    @Subscribe
+    public void stopProgressBar(StopProgressBarEvent stopProgressBarEvent){
+        circleProgressBar.setVisibility(View.INVISIBLE);
     }
 }

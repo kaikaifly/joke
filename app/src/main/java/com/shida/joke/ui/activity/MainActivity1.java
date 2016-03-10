@@ -11,7 +11,7 @@ import com.shida.joke.base.BaseActivity;
 import com.shida.joke.ui.fragment.ChuanYueFragment;
 import com.shida.joke.ui.fragment.JingHuaFragment;
 import com.shida.joke.ui.fragment.XinTieFragment;
-import com.shida.joke.ui.fragment.xintie.MineFragment;
+import com.shida.joke.ui.fragment.MineFragment;
 
 import butterknife.Bind;
 import cn.sharesdk.framework.ShareSDK;
