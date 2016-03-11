@@ -57,7 +57,7 @@ public class ChuanYueFragment extends BaseFragment {
         tabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
         pager = (ViewPager) view.findViewById(R.id.pager);
         circleProgressBar = (CircleProgressBar) view.findViewById(R.id.progress);
-        pager.setOffscreenPageLimit(8);
+        pager.setOffscreenPageLimit(3);
 
         tabs.setTextSize(40);
         tabs.setTextColor(getResources().getColor(R.color.tabs_black));

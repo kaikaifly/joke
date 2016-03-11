@@ -35,6 +35,7 @@ public class PictureDetailActivity extends BaseActivity{
         Glide
                 .with(context)
                 .load(imageUrl)
+                .skipMemoryCache(true)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(image);
 

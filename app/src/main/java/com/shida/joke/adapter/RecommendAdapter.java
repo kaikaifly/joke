@@ -105,6 +105,7 @@ public class RecommendAdapter extends BaseListAdapter<Recommend.ListEntity, Reco
             holder.lookWebview.setVisibility(View.GONE);
             Glide.with(context)
                     .load(data.getImage().getBig().get(0))
+                    .skipMemoryCache(true)
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .placeholder(R.mipmap.ic_launcher)
                     .into(holder.imgae);
@@ -123,6 +124,7 @@ public class RecommendAdapter extends BaseListAdapter<Recommend.ListEntity, Reco
             holder.lookWebview.setVisibility(View.GONE);
             Glide.with(context)
                     .load(data.getGif().getImages().get(0))
+                    .skipMemoryCache( true )
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .placeholder(R.mipmap.ic_launcher)
                     .into(holder.imgae);

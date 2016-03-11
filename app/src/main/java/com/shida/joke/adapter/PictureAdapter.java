@@ -74,6 +74,7 @@ public class PictureAdapter extends BaseListAdapter<Picture.ListEntity, PictureA
         if (data.getType().equals("image")){
             Glide.with(context)
                     .load(data.getImage().getBig().get(0))
+                    .skipMemoryCache( true )
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .placeholder(R.drawable.loading_icon)
                     .into(holder.imgae);
@@ -81,6 +82,7 @@ public class PictureAdapter extends BaseListAdapter<Picture.ListEntity, PictureA
 
             Glide.with(context)
                     .load(data.getGif().getImages().get(0))
+                    .skipMemoryCache( true )
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                     .placeholder(R.drawable.loading_icon)
                     .into(holder.imgae);

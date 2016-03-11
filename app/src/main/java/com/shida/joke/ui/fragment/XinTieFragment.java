@@ -67,7 +67,7 @@ public class XinTieFragment extends BaseFragment {
         pager = (ViewPager) view.findViewById(R.id.pager);
         circleProgressBar = (CircleProgressBar) view.findViewById(R.id.progress);
 
-        pager.setOffscreenPageLimit(8);
+        pager.setOffscreenPageLimit(7);
         tabs.setTextSize(40);
         tabs.setTextColor(getResources().getColor(R.color.tabs_black));
         tabs.setTypeface(Typeface.create(Typeface.SERIF, Typeface.NORMAL), Typeface.NORMAL);

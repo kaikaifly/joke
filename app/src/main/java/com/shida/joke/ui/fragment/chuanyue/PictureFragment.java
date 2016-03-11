@@ -110,7 +110,7 @@ public class PictureFragment extends BaseFragment {
 
 
     private void getData() {
-        NetApi.getAll_chuanyue(timestamp, new OkHttpClientManager.ResultCallback<Recommend>() {
+        NetApi.getPic_chuanyue(timestamp, new OkHttpClientManager.ResultCallback<Recommend>() {
             @Override
             public void onBefore(Request request) {
                 BusProvider.getInstance().post(new ShowProgressBarEvent());

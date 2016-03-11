@@ -109,7 +109,7 @@ public class TextFragment extends BaseFragment {
 
 
     private void getData() {
-        NetApi.getAll_chuanyue(timestamp, new OkHttpClientManager.ResultCallback<Recommend>() {
+        NetApi.getText_chuanyue(timestamp, new OkHttpClientManager.ResultCallback<Recommend>() {
             @Override
             public void onBefore(Request request) {
                 BusProvider.getInstance().post(new ShowProgressBarEvent());
