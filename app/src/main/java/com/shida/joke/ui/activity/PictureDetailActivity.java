@@ -37,6 +37,7 @@ public class PictureDetailActivity extends BaseActivity{
                 .load(imageUrl)
                 .skipMemoryCache(true)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .fitCenter()
                 .into(image);
 
     }
